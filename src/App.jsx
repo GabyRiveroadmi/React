@@ -15,7 +15,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path='/' element={<ItemListContainer title='Pet Shop Nieve'/>}/>
-          <Route path='/categoria/:categoriaId' element={<ItemListContainer title='Pet Shop Nieve' />} />
+          <Route path='/categoria/:categoryId' element={<ItemListContainer title='Pet Shop Nieve' />} />
           <Route path='/producto/:productId' element={<ItemDetailContainer />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>

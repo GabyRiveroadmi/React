@@ -7,7 +7,7 @@ const useCounter = (initialValue, stock) => {
         count < stock && setCount(count + 1)
     }
     const decrementar = () => {
-        count > initialValue && setCount (count - 1)
+        count > initialValue && setCount(count - 1)
     }
 
   return {    

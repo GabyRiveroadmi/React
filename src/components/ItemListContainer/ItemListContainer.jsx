@@ -6,15 +6,15 @@ import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = ({title}) => {
-  const [products, setProducts] = useState([])
-  const { categoryId } = useParams()
+  const [ products, setProducts ] = useState([])
+  const { categoryId  } = useParams()
   
   useEffect(() => {
     
-    const dataProducts = categoryId ? getProductsByCategory(categoryId) : getProducts()
+    const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
     
     
-    dataProducts
+    dataProductos
      .then((el) => setProducts(el))
      .catch((error) => console.log(error))
   }, [categoryId])
@@ -22,8 +22,8 @@ const ItemListContainer = ({title}) => {
 
   return (
     <Box>
-    <Heading textAlign={'center'} mt={10} color={'black'}>{title} </Heading>
-    <ItemList products={products} />
+     <Heading textAlign={'center'} mt={10} color={'black'}>{title} </Heading>
+     <ItemList products={products} />
     </Box>
   )
 }
