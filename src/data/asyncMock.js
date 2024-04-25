@@ -106,8 +106,9 @@ export const getProducts = () => {
   
   export const getProductById = (id) => {
     return new Promise((resolve) => {
+
       const productoFiltrado = productos.find((prod) => prod.id === parseInt(id));
-      
+
       setTimeout(() => {
         resolve(productoFiltrado);
       }, 2000);

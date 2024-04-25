@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, SimpleGrid, Image, Flex, Stack } from "@chakra-ui/react";
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, SimpleGrid, Image, Flex, Stack, Center } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 
 
@@ -13,14 +13,17 @@ const Item = ({ id, description, title, price, image, categoria, stock }) => {
           <Heading size="md">{title}</Heading>
         </CardHeader>
         <CardBody>
-         <Image
-         src={image}
-         borderRadius='lg' w="200px" h="200px" objectFit="cover" />         
+        <Center>
+         <Image src={image}
+         borderRadius='lg' w="200px" h="200px" objectFit="cover" /> 
+         </Center>        
           <Text textAlign="center" padding={5}> ${price} </Text>
         </CardBody>
         <CardFooter>
         <Link to={`/producto/${id}`}>
-        <Button>Mas Informacion</Button>
+        <Center> 
+        <Button>Mas Informacion</Button> 
+        </Center>  
           </Link>
         
         </CardFooter>
