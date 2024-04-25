@@ -4,8 +4,6 @@ import { Box, Flex } from "@chakra-ui/react";
 
 const ItemList = ({ products }) => {
 
-
-
   return (
     <Flex w='1800px' h='180px' mt={10} alignContent={3} spacing='40px' justify='center'  >
         {products.map((elem) => (

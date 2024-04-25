@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount"
 
 
 const ItemDetail = ({title, price, description, category, image, stock}) => {
+  
   return (
     <SimpleGrid>
       <Flex>
