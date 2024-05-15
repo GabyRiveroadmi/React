@@ -30,12 +30,11 @@ const ItemListContainer = ({title}) => {
      <Heading textAlign={'center'} mt={10} color={'black'}>{title} </Heading>
      {
         loading ? 
-        <Flex justify={'center'} align={'center'} h={'50vh'}>
-
-        <BeatLoader color="#36d7b" />
+        <Flex justify={"center"} align={"center"} h={"80vh"}>
+        
+        <BeatLoader color="#36d7b7" />
         </Flex>
         :
-
       <ItemList products={products} />
       }   
     </Box>

@@ -7,16 +7,19 @@ const Item = ({ id, description, title, price, image, categoria, stock }) => {
   return (
     
     <Flex justify="center" align="center" padding={3} spacing={6} maxW="100%" mx="auto" direction={'column'} mt={10}> 
-   
-      
-      <Card maxW="md" width="100%">
+     
+      <Card maxW="sm" width="100%">
         <CardHeader>
           <Heading size="md">{title}</Heading>
         </CardHeader>
         <CardBody>
         <Center>
          <Image src={image}
-         borderRadius='lg' w="200px" h="200px" objectFit="cover" /> 
+          borderRadius="lg"
+          boxSize='80%'
+          objectFit='cover' 
+          w='200px'
+          h='200px' /> 
          </Center>        
           <Text textAlign="center" padding={5}> ${price} </Text>
         </CardBody>
