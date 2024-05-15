@@ -13,9 +13,10 @@ const NavBar = () => {
         <Button colorScheme='teal'><Link to='/categoria/Alimentos'>Alimentos</Link></Button>
         <Button colorScheme='teal'><Link to='/categoria/Sale'>Sale</Link></Button>
       </ButtonGroup>
-    
+
+      <Link to='/cart'>
       <CartWidget /> 
- 
+      </Link>
     </Flex>
   )
 }

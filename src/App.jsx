@@ -5,12 +5,15 @@ import NavBar from './components/NavBar/NavBar'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import PageNotFound from './components/PageNotFound/PageNotFound'
+import { ContextProvider } from './context/CartContext'
+import Cart from './components/Cart/Cart'
 
 function App() {
  
   return (
     
       <ChakraProvider>
+       <ContextProvider>
        <BrowserRouter>
         <NavBar />
         
@@ -18,10 +21,11 @@ function App() {
           <Route path='/' element={<ItemListContainer title='Pet Shop Nieve'/>}/>
           <Route path='/categoria/:categoryId' element={<ItemListContainer title='Pet Shop Nieve' />} />
           <Route path='/producto/:productId' element={<ItemDetailContainer />} />
-          
+          <Route path='/Cart' element={<Cart />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
        </BrowserRouter> 
+       </ContextProvider>
       </ChakraProvider>
      
   )

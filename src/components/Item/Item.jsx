@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const Item = ({ id, description, title, price, image, categoria, stock }) => {
   return (
     
-    <Flex justify="center" align="center" padding={3} spacing={6} maxW="100%" mx="auto"> 
+    <Flex justify="center" align="center" padding={3} spacing={6} maxW="100%" mx="auto" direction={'column'} mt={10}> 
+   
       
       <Card maxW="md" width="100%">
         <CardHeader>
@@ -21,7 +22,7 @@ const Item = ({ id, description, title, price, image, categoria, stock }) => {
         </CardBody>
         <CardFooter>
         <Link to={`/producto/${id}`}>
-        <Center> 
+        <Center align="center"> 
         <Button>Mas Informacion</Button> 
         </Center>  
           </Link>
