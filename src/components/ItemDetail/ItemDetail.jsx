@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Image, F
 import ItemCount from "../ItemCount/ItemCount"
 import Context from '../../context/CartContext'
 import { Link } from 'react-router-dom'
+import { BeatLoader } from "react-spinners"
 
 
 const ItemDetail = ({title, price, description, category, image, stock, id}) => {
@@ -10,8 +11,7 @@ const ItemDetail = ({title, price, description, category, image, stock, id}) => 
   const { addItem } = useContext(Context)
 
   const onAdd = (quantity) => {
-    console.log("Agregando al carrito:");
-    console.log("Cantidad:", quantity);
+    
     const item = {
       id,
       title,
@@ -50,7 +50,7 @@ const ItemDetail = ({title, price, description, category, image, stock, id}) => 
 
         
       </Card>
-      
+      <BeatLoader color="#36d7b" />
     </Flex>
   
 </Box>
