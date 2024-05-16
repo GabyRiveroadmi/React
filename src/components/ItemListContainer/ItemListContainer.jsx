@@ -4,6 +4,8 @@ import { getProducts, getProductsByCategory } from "../../data/asyncMock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
+import { db } from "../../config/firebase";
+import { collection, getDocs, where, query } from "firebase/firestore";
 
 
 const ItemListContainer = ({title}) => {
@@ -14,14 +16,34 @@ const ItemListContainer = ({title}) => {
   
   
   useEffect(() => {
+    setLoading(true)
+
+  const getData = async () => {
+    const coleccion = collection(db, 'productos')
+
+    const queryRef = !categoryId ?
+    coleccion
+    :
+    query(coleccion, where('category', '==', categoryId))
+
+    const response = await getDocs(queryRef)
     
-    const dataProductos = categoryId ? getProductsByCategory(categoryId) : getProducts()
-    
-    
-    dataProductos
-     .then((el) => setProducts(el))
-     .catch((error) => console.log(error))
-     .finally(() => setLoading(false))
+    const productos = response.docs.map((doc) =>{
+      const newItem = {
+        ...doc.data(),
+        id: doc.id
+      }
+      return newItem
+      
+    })
+    setProducts(productos)
+    setLoading(false)
+
+
+    console.log(response)
+  }
+  getData()
+ 
   }, [categoryId])
 
 
@@ -41,4 +63,4 @@ const ItemListContainer = ({title}) => {
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

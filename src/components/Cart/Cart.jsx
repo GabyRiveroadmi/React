@@ -10,9 +10,11 @@ import {
     Td,
     TableCaption,
     TableContainer,
-    Button,
+    Button
   } from '@chakra-ui/react'
-  import { RiDeleteBin5Fill } from "react-icons/ri";
+  import { RiDeleteBin5Fill } from "react-icons/ri"
+  import { Link } from 'react-router-dom'
+  import { BeatLoader } from "react-spinners"
  
 
 
@@ -21,7 +23,9 @@ const Cart = () => {
    
 
   return (
+    
   <TableContainer w={'60%'} m={'0 auto'} mt={10}>
+    
       
   <Table variant='simple'>
     <TableCaption>Estas a un paso de tu finalizar tu compra</TableCaption>
@@ -58,9 +62,13 @@ const Cart = () => {
         <Th>
         <Button onClick={() => clearCart()}>
            Vaciar Carrito
-            </Button>
+        </Button>
+        <Button>
+        <Link to='/checkout'>Finalizar Compra</Link>
+
+        </Button>
+          
         </Th>
-        
       </Tr>
     </Tfoot>
   </Table>

@@ -4,8 +4,11 @@ import { getProductById } from '../../data/asyncMock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { BeatLoader } from "react-spinners"
 import { Box, Flex } from '@chakra-ui/react'
+import { db } from "../../config/firebase"
+import { doc, getDoc } from 'firebase/firestore'
+import Context from '../../context/CartContext'
 
-
+        
 
 const ItemDetailContainer = () => {
     const [ producto, setProducto ] = useState({})
@@ -15,16 +18,17 @@ const ItemDetailContainer = () => {
 
     const navigate = useNavigate()
     useEffect(() => {
-       getProductById(productId)
-       .then((prod) => {
-        if(!prod) {
-          navigate('/*')
-        }else{
-       setProducto(prod)}
+       const getProduct = async() => {
+        const queryRef = doc(db, 'productos', productId)
+        const response = await getDoc(queryRef)
+        const newItem = {
+          ...response.data(),
+          id:response.id
         }
-      )
-       .catch((error) => console.log(error))
-       .finally(() => setLoading(false))
+        setProducto(newItem)
+        setLoading(false)
+       }
+       getProduct()
       }
       , [productId])
 
